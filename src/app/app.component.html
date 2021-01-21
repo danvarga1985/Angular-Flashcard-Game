@@ -1,3 +1,11 @@
 <div class="flashs">
-  <app-flash></app-flash>
+  <!-- 'trackBy' helps Angular keep the list performant when it comes to removal or addition of objects. -->
+  <app-flash 
+  *ngFor="let flash of flashs; trackBy: trackByFlashId" 
+  [flash]="flash"
+  (onToggleCard)="handleToggleCard($event)"
+  (onDelete)="handleDelete($event)"
+  (onEdit)="handleEdit($event)"
+  (onRememberedChange)="handleRememberedChange($event)"
+  ></app-flash>
 </div>
